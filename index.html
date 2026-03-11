@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cristal Andes - Agua purificada</title>
+
+  <!-- SEO / Redes sociales -->
+  <meta name="description" content="Agua purificada en Moyobamba. Bidón 20L solo S/5 con delivery gratis el mismo día." />
+  <meta property="og:title" content="Cristal Andes - Agua purificada" />
+  <meta property="og:description" content="Bidón 20L solo S/5 con delivery gratis" />
+  <meta property="og:image" content="images/portada3.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="images/fondo.jpg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header>
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="video/cabezera.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>💧 Cristal Andes</h1>
+    <p class="subtitulo">Agua pura en tu zona · Moyobamba</p>
+    <p class="precio">Bidón 20L solo <strong>S/5</strong></p>
+    <div class="badges">
+      <span class="badge">🚚 Delivery GRATIS</span>
+      <span class="badge">⚡ Entrega el mismo día</span>
+      <span class="badge">🔒 Bidones sellados</span>
+    </div>
+    <a href="#pedido" class="btn btn-verde">🛒 Pedir ahora</a>
+  </div>
+</header>
+
+<!-- ===== CONTADOR ===== -->
+<div class="contador-wrap">
+  <h2>Clientes satisfechos</h2>
+  <div class="counter" id="counter">0</div>
+  <p class="counter-sub">familias ya confían en nosotros</p>
+</div>
+
+<!-- ===== PRODUCTOS ===== -->
+<section>
+  <h2>Nuestros productos</h2>
+  <p class="subtitulo-seccion">Agua purificada lista para ti</p>
+  <div class="grid">
+
+    <div class="card">
+      <img src="images/bidon-principal.jpg" alt="Bidón 20L" />
+      <h3>Bidón 20L</h3>
+      <div class="precio-card">S/5</div>
+      <button class="btn btn-azul" style="width:100%;justify-content:center;" onclick="addToCart('Bidón 20L', 5)">Agregar al pedido</button>
+    </div>
+
+    <div class="card">
+      <img src="images/bidon-1.jpg" alt="Bidón sellado" />
+      <h3>Bidón sellado</h3>
+      <p style="color:#666;font-size:.9rem;margin-bottom:14px;">Agua purificada premium</p>
+    </div>
+
+    <div class="card">
+      <img src="images/bidon-2.jpg" alt="Bidón listo" />
+      <h3>Bidón listo para entrega</h3>
+      <p style="color:#666;font-size:.9rem;margin-bottom:14px;">Alta calidad garantizada</p>
+    </div>
+
+    <div class="card">
+      <img src="images/promo.jpg" alt="Promo 3 bidones" />
+      <h3>Promo 3 bidones</h3>
+      <div class="precio-card">S/14</div>
+      <button class="btn btn-azul" style="width:100%;justify-content:center;" onclick="addToCart('Promo 3 bidones', 14)">Agregar al pedido</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PEDIDO ===== -->
+<section id="pedido" style="background:var(--azul-claro);">
+  <h2>Tu pedido</h2>
+  <p class="subtitulo-seccion">Revisa y envíanos tu pedido por WhatsApp</p>
+  <div class="card">
+    <div id="cartItems">
+      <p style="color:#aaa;text-align:center;padding:12px 0;">Tu carrito está vacío</p>
+    </div>
+    <div class="total-row">
+      <span>Total</span>
+      <span>S/<span id="total">0</span></span>
+    </div>
+
+    <div class="form-group">
+      <label>Nombre</label>
+      <input id="nombre" type="text" placeholder="Tu nombre completo" />
+    </div>
+    <div class="form-group">
+      <label>Dirección</label>
+      <input id="direccion" type="text" placeholder="Calle, número, referencia" />
+    </div>
+    <div class="form-group">
+      <label>Teléfono (opcional)</label>
+      <input id="telefono" type="tel" placeholder="Tu número de teléfono" />
+    </div>
+
+    <button class="btn btn-verde btn-send" onclick="sendOrder()">
+      <svg viewBox="0 0 24 24" style="width:22px;fill:white;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.14.564 4.148 1.55 5.887L0 24l6.302-1.53A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.585-.5-5.082-1.373l-.362-.215-3.742.909.946-3.641-.235-.374A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Enviar pedido por WhatsApp
+    </button>
+  </div>
+</section>
+
+<!-- ===== BENEFICIOS ===== -->
+<section>
+  <h2>¿Por qué elegirnos?</h2>
+  <p class="subtitulo-seccion">Calidad y servicio que marca la diferencia</p>
+  <div class="grid">
+    <div class="beneficio-card"><span class="icono">💧</span>Agua purificada</div>
+    <div class="beneficio-card"><span class="icono">🚚</span>Delivery gratis</div>
+    <div class="beneficio-card"><span class="icono">⚡</span>Entrega rápida</div>
+    <div class="beneficio-card"><span class="icono">🔒</span>Bidones sellados</div>
+  </div>
+</section>
+
+<!-- ===== DELIVERY ===== -->
+<section style="background:white;">
+  <h2>Delivery en tu zona</h2>
+  <p class="subtitulo-seccion">Llegamos hasta tu puerta</p>
+  <div class="grid grid-2">
+    <img src="images/delivery1.jpg" class="img-galeria" alt="Delivery 1" />
+    <img src="images/delivery2.jpg" class="img-galeria" alt="Delivery 2" />
+  </div>
+</section>
+
+<!-- ===== PROCESO ===== -->
+<section>
+  <h2>Proceso de purificación</h2>
+  <p class="subtitulo-seccion">Riguroso control de calidad en cada etapa</p>
+  <div class="grid grid-2">
+    <img src="images/proceso1.jpg" class="img-galeria" alt="Proceso 1" />
+    <img src="images/proceso2.jpg" class="img-galeria" alt="Proceso 2" />
+  </div>
+</section>
+
+<!-- ===== CERTIFICACIÓN ===== -->
+<section style="background:white;">
+  <h2>Certificación de pureza</h2>
+  <div class="card" style="max-width:520px;margin:0 auto;">
+    <img src="images/certificacion.jpg" alt="Certificación" style="height:220px;" />
+    <p style="margin-top:14px;color:#666;">Proceso controlado de filtración y purificación para garantizar agua 100% segura para toda la familia.</p>
+  </div>
+</section>
+
+<!-- ===== UBICACIÓN DEL CLIENTE ===== -->
+<section>
+  <h2>¿Dónde estás?</h2>
+  <p class="subtitulo-seccion">Comparte tu ubicación y te mandamos tu agua al instante</p>
+  <p id="ubicacion">Presiona el botón para compartir tu ubicación</p>
+  <button class="btn btn-azul" onclick="getLocation()" style="margin-top:10px;">
+    📍 Compartir mi ubicación
+  </button>
+</section>
+
+<!-- ===== OPINIONES ===== -->
+<section style="background:var(--azul-claro);">
+  <h2>Opiniones</h2>
+  <p class="subtitulo-seccion">¿Cómo fue tu experiencia?</p>
+
+  <div class="estrellas">
+    <span class="estrella">⭐</span>
+    <span class="estrella">⭐</span>
+    <span class="estrella">⭐</span>
+    <span class="estrella">⭐</span>
+    <span class="estrella">⭐</span>
+  </div>
+  <p id="ratingText">Toca para calificar nuestro servicio</p>
+
+  <div class="grid" id="reviews" style="max-width:900px;margin:0 auto 20px;"></div>
+
+  <div class="form-opinion">
+    <textarea id="reviewInput" placeholder="Escribe tu opinión sobre nuestro servicio…"></textarea>
+    <button class="btn btn-azul" style="align-self:center;padding:12px 30px;" onclick="addReview()">Enviar opinión</button>
+  </div>
+</section>
+
+<!-- ===== MAPA ===== -->
+<section style="background:white;">
+  <h2>Zona de entrega</h2>
+  <p class="subtitulo-seccion">Cubrimos toda la ciudad de Moyobamba</p>
+  <div class="mapa-wrap">
+    <iframe
+      src="https://maps.google.com/maps?q=moyobamba&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      title="Mapa Moyobamba"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<!-- ===== REDES SOCIALES ===== -->
+<section class="redes-section">
+  <h2>Síguenos</h2>
+  <p class="subtitulo-seccion">Entérate de promos y novedades</p>
+  <div class="redes-grid">
+
+    <a href="https://www.facebook.com/CristalAndes" target="_blank" class="red-btn red-facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.027 4.388 11.025 10.125 11.927v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796v8.437C19.612 23.098 24 18.1 24 12.073z"/></svg>
+      <span>Facebook</span>
+    </a>
+
+    <a href="https://www.instagram.com/CristalAndes" target="_blank" class="red-btn red-instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      <span>Instagram</span>
+    </a>
+
+    <a href="https://www.tiktok.com/@CristalAndes" target="_blank" class="red-btn red-tiktok">
+      <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.54V6.78a4.85 4.85 0 01-1.01-.09z"/></svg>
+      <span>TikTok</span>
+    </a>
+
+    <a href="https://wa.me/51968531996" target="_blank" class="red-btn red-whatsapp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.14.564 4.148 1.55 5.887L0 24l6.302-1.53A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.585-.5-5.082-1.373l-.362-.215-3.742.909.946-3.641-.235-.374A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <h3>💧 Cristal Andes</h3>
+  <p>Agua pura en tu zona · Moyobamba, San Martín</p>
+  <p>📞 WhatsApp: <a href="https://wa.me/51968531996" style="color:#7ef5ff;">968 531 996</a></p>
+
+  <div class="footer-redes">
+    <a href="https://www.facebook.com/CristalAndes" target="_blank" class="footer-red" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.027 4.388 11.025 10.125 11.927v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796v8.437C19.612 23.098 24 18.1 24 12.073z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/CristalAndes" target="_blank" class="footer-red" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@CristalAndes" target="_blank" class="footer-red" aria-label="TikTok">
+      <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.54V6.78a4.85 4.85 0 01-1.01-.09z"/></svg>
+    </a>
+    <a href="https://wa.me/51968531996" target="_blank" class="footer-red" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.14.564 4.148 1.55 5.887L0 24l6.302-1.53A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.585-.5-5.082-1.373l-.362-.215-3.742.909.946-3.641-.235-.374A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+  </div>
+
+  <p class="footer-copy">© 2025 Cristal Andes · Todos los derechos reservados</p>
+</footer>
+
+<!-- ===== BOTONES FLOTANTES ===== -->
+<div class="flotantes">
+  <a href="https://wa.me/51968531996" target="_blank" class="flotante-btn flotante-wa" title="WhatsApp">
+    <svg viewBox="0 0 24 24" style="width:22px;fill:white;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.14.564 4.148 1.55 5.887L0 24l6.302-1.53A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.585-.5-5.082-1.373l-.362-.215-3.742.909.946-3.641-.235-.374A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    <span class="texto">WhatsApp</span>
+  </a>
+  <a href="#pedido" class="flotante-btn flotante-pedir" title="Pedir agua">
+    💧 <span class="texto">Pedir agua</span>
+  </a>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
