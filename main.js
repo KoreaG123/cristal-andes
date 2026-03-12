@@ -12,6 +12,69 @@
   }, 18);
 })();
 
+/* ===== SELECTOR DE COLOR ===== */
+const colorImages = {
+  bidon1: {
+    azul:     'images/bidon-principal.jpg',
+    rosado:   'images/bidon1.jpg',
+    verde:    'images/bidon2.jpg',
+    amarillo: 'images/bidon1.jpg'
+  },
+  bidon2: {
+    azul:     'images/bidon-principal.jpg',
+    rosado:   'images/bidon1.jpg',
+    verde:    'images/bidon2.jpg',
+    amarillo: 'images/bidon1.jpg'
+  }
+};
+
+const selectedColor = { bidon1: null, bidon2: null };
+
+function elegirColor(bidonId, nombre, precio, btn) {
+  const parent = btn.closest('.color-selector');
+  parent.querySelectorAll('.color-btn').forEach(b => b.classList.remove('seleccionado'));
+  btn.classList.add('seleccionado');
+
+  const colorKey = btn.title.toLowerCase();
+  selectedColor[bidonId] = btn.title; // guarda el nombre del color en español
+
+  // Cambiar imagen con fade
+  const idImg = 'img' + bidonId.charAt(0).toUpperCase() + bidonId.slice(1);
+  const img = document.getElementById(idImg);
+  if (img && colorImages[bidonId][colorKey]) {
+    img.style.transition = 'opacity 0.3s';
+    img.style.opacity = '0';
+    setTimeout(() => {
+      img.src = colorImages[bidonId][colorKey];
+      img.style.opacity = '1';
+    }, 300);
+  }
+
+  // Actualizar texto del botón agregar
+  const idBtn = 'btn' + bidonId.charAt(0).toUpperCase() + bidonId.slice(1);
+  const btnAgregar = document.getElementById(idBtn);
+  if (btnAgregar) btnAgregar.textContent = `Agregar (${btn.title})`;
+}
+
+function addToCartColor(bidonId, defaultName, price) {
+  const color = selectedColor[bidonId];
+  const nombre = color ? `${defaultName} - Color ${color}` : defaultName;
+  cart.push({ name: nombre, price });
+  renderCart();
+
+  const idBtn = 'btn' + bidonId.charAt(0).toUpperCase() + bidonId.slice(1);
+  const btn = document.getElementById(idBtn);
+  if (btn) {
+    const textoOriginal = btn.textContent;
+    btn.textContent = '✓ Agregado';
+    btn.style.background = '#005fa3';
+    setTimeout(() => {
+      btn.textContent = color ? `Agregar (${color})` : 'Agregar al pedido';
+      btn.style.background = '';
+    }, 1200);
+  }
+}
+
 /* ===== CARRITO ===== */
 let cart = [];
 
