@@ -124,6 +124,47 @@ function renderCart() {
   totalEl.textContent = total;
 }
 
+/* ===== UBICACIÓN EXACTA ===== */
+let ubicacionCliente = null;
+
+function obtenerUbicacion() {
+  const box    = document.getElementById('ubicacionBox');
+  const estado = document.getElementById('ubicacionEstado');
+  const btn    = box.querySelector('.btn-ubicacion');
+
+  btn.textContent = '⏳ Obteniendo ubicación...';
+  btn.disabled = true;
+
+  if (!navigator.geolocation) {
+    estado.textContent = '❌ Tu navegador no soporta geolocalización.';
+    btn.textContent = '📍 Compartir mi ubicación';
+    btn.disabled = false;
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      const lat = pos.coords.latitude.toFixed(6);
+      const lon = pos.coords.longitude.toFixed(6);
+      ubicacionCliente = { lat, lon };
+
+      const mapsLink = `https://maps.google.com/?q=${lat},${lon}`;
+
+      box.classList.add('obtenida');
+      estado.innerHTML = `✅ Ubicación obtenida<br><a class="ubicacion-link" href="${mapsLink}" target="_blank">Ver en Google Maps</a>`;
+      btn.textContent = '✅ Ubicación guardada';
+      btn.classList.add('obtenida');
+      btn.disabled = false;
+    },
+    (err) => {
+      estado.textContent = '❌ No se pudo obtener la ubicación. Verifica los permisos.';
+      btn.textContent = '📍 Intentar de nuevo';
+      btn.disabled = false;
+    },
+    { enableHighAccuracy: true, timeout: 10000 }
+  );
+}
+
 /* ===== ENVÍO WHATSAPP ===== */
 function sendOrder() {
   const nombre    = document.getElementById('nombre').value.trim();
@@ -146,8 +187,13 @@ function sendOrder() {
     total += item.price;
   });
 
+  // Ubicación
+  const ubicacionTexto = ubicacionCliente
+    ? `\n📍 Ubicación exacta: https://maps.google.com/?q=${ubicacionCliente.lat},${ubicacionCliente.lon}`
+    : '\n📍 Ubicación: (no compartida)';
+
   const msg = encodeURIComponent(
-    `¡Hola! Quiero hacer un pedido 💧\n\n${pedidoTexto}\n*Total: S/${total}*\n\n📋 Mis datos:\n👤 Nombre: ${nombre}\n📍 Dirección: ${direccion}${telefono ? '\n📞 Teléfono: ' + telefono : ''}`
+    `¡Hola! Quiero hacer un pedido 💧\n\n${pedidoTexto}\n*Total: S/${total}*\n\n📋 Mis datos:\n👤 Nombre: ${nombre}\n🏠 Dirección: ${direccion}${telefono ? '\n📞 Teléfono: ' + telefono : ''}${ubicacionTexto}`
   );
 
   window.open(`https://wa.me/51968531996?text=${msg}`, '_blank');
