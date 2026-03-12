@@ -53,7 +53,10 @@
       <span class="badge">⚡ Entrega el mismo día</span>
       <span class="badge">🔒 Bidones sellados</span>
     </div>
-    <a href="#pedido" class="btn btn-verde">🛒 Pedir ahora</a>
+    <div class="hero-btns">
+      <a href="#pedido" class="btn btn-verde">🛒 Pedir ahora</a>
+      <a href="#productos" class="btn btn-outline">💧 Ver precios</a>
+    </div>
   </div>
 </header>
 
@@ -65,8 +68,7 @@
 </div>
 
 <!-- ===== PRODUCTOS ===== -->
-<section>
-  <h2>Nuestros productos</h2>
+<section id="productos">
   <p class="subtitulo-seccion">Agua purificada lista para ti</p>
   <div class="grid">
 
@@ -78,15 +80,33 @@
     </div>
 
     <div class="card">
-      <img src="images/bidon1.jpg" alt="Bidón sellado" />
+      <img src="images/bidon1.jpg" alt="Bidón sellado" id="imgBidon1" />
       <h3>Bidón sellado</h3>
-      <p style="color:#666;font-size:.9rem;margin-bottom:14px;">Agua purificada premium</p>
+      <p style="color:#666;font-size:.9rem;margin-bottom:10px;">Agua purificada premium</p>
+      <div class="color-selector">
+        <span class="color-label">Color:</span>
+        <button class="color-btn" style="background:#3a86ff;" onclick="elegirColor('bidon1','Bidón sellado azul',5,this)" title="Azul"></button>
+        <button class="color-btn" style="background:#ff6eb4;" onclick="elegirColor('bidon1','Bidón sellado rosado',5,this)" title="Rosado"></button>
+        <button class="color-btn" style="background:#6bcb77;" onclick="elegirColor('bidon1','Bidón sellado verde',5,this)" title="Verde"></button>
+        <button class="color-btn" style="background:#ffd166;" onclick="elegirColor('bidon1','Bidón sellado amarillo',5,this)" title="Amarillo"></button>
+      </div>
+      <div class="precio-card" style="margin-top:10px;">S/5</div>
+      <button class="btn btn-azul" style="width:100%;justify-content:center;" id="btnBidon1" onclick="addToCartColor('bidon1','Bidón sellado',5)">Agregar al pedido</button>
     </div>
 
     <div class="card">
-      <img src="images/bidon2.jpg" alt="Bidón listo" />
+      <img src="images/bidon2.jpg" alt="Bidón listo" id="imgBidon2" />
       <h3>Bidón listo para entrega</h3>
-      <p style="color:#666;font-size:.9rem;margin-bottom:14px;">Alta calidad garantizada</p>
+      <p style="color:#666;font-size:.9rem;margin-bottom:10px;">Alta calidad garantizada</p>
+      <div class="color-selector">
+        <span class="color-label">Color:</span>
+        <button class="color-btn" style="background:#3a86ff;" onclick="elegirColor('bidon2','Bidón listo azul',5,this)" title="Azul"></button>
+        <button class="color-btn" style="background:#ff6eb4;" onclick="elegirColor('bidon2','Bidón listo rosado',5,this)" title="Rosado"></button>
+        <button class="color-btn" style="background:#6bcb77;" onclick="elegirColor('bidon2','Bidón listo verde',5,this)" title="Verde"></button>
+        <button class="color-btn" style="background:#ffd166;" onclick="elegirColor('bidon2','Bidón listo amarillo',5,this)" title="Amarillo"></button>
+      </div>
+      <div class="precio-card" style="margin-top:10px;">S/5</div>
+      <button class="btn btn-azul" style="width:100%;justify-content:center;" id="btnBidon2" onclick="addToCartColor('bidon2','Bidón listo para entrega',5)">Agregar al pedido</button>
     </div>
 
     <div class="card">
