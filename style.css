@@ -121,7 +121,7 @@ header {
 
 .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
 
-.btn-verde   { background: var(--verde-wa); color: white; }
+.btn-outline  { background: var(--verde-wa); color: white; }
 .btn-azul    { background: var(--azul); color: white; }
 .btn-blanco  { background: white; color: var(--azul); }
 .btn-outline { background: transparent; border: 2px solid white; color: white; }
