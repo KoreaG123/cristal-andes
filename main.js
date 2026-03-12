@@ -147,7 +147,30 @@ function addReview() {
   input.value = '';
 }
 
-/* ===== SCROLL REVEAL (leve) ===== */
+/* ===== BIDÓN FLOTANTE — mostrar al hacer scroll ===== */
+(function() {
+  const bidon = document.getElementById('bidonFlotante');
+  if (!bidon) return;
+
+  // Al hacer click va al pedido
+  bidon.addEventListener('click', () => {
+    document.getElementById('pedido').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    if (scrolled > 300) {
+      bidon.style.display = 'block';
+      // Posición Y sigue el scroll suavemente entre 20% y 80% del viewport
+      const ratio = Math.min(scrolled / (document.body.scrollHeight - window.innerHeight), 1);
+      const topPercent = 20 + ratio * 60; // va de 20% a 80%
+      bidon.style.top = topPercent + '%';
+      bidon.style.animation = 'bidonFlota 3s ease-in-out infinite';
+    } else {
+      bidon.style.display = 'none';
+    }
+  });
+})();
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
