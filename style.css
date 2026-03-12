@@ -519,6 +519,75 @@ footer p { opacity: 0.85; margin: 5px 0; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ===== BIDÓN FLOTANTE ANIMADO ===== */
+.bidon-flotante {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: bidonFlota 3s ease-in-out infinite;
+  display: none; /* se muestra con JS al hacer scroll */
+}
+
+.bidon-flotante img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 6px 24px rgba(0, 119, 204, 0.4);
+  border: 3px solid white;
+  display: block;
+}
+
+.bidon-flotante:hover {
+  animation: none;
+  transform: translateY(-50%) scale(1.12);
+}
+
+.bidon-tooltip {
+  position: absolute;
+  left: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--azul);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+
+.bidon-tooltip::before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right-color: var(--azul);
+}
+
+.bidon-flotante:hover .bidon-tooltip { opacity: 1; }
+
+@keyframes bidonFlota {
+  0%, 100% { transform: translateY(-50%); }
+  50%       { transform: translateY(calc(-50% - 12px)); }
+}
+
+@media (max-width: 480px) {
+  .bidon-flotante img { width: 55px; height: 55px; }
+  .bidon-tooltip { display: none; }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   header { height: 100svh; }
