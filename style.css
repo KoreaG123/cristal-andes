@@ -121,7 +121,7 @@ header {
 
 .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
 
-.btn-outline  { background: var(--verde-wa); color: white; }
+.btn-verde   { background: var(--verde-wa); color: white; }
 .btn-azul    { background: var(--azul); color: white; }
 .btn-blanco  { background: white; color: var(--azul); }
 .btn-outline { background: transparent; border: 2px solid white; color: white; }
@@ -517,6 +517,65 @@ footer p { opacity: 0.85; margin: 5px 0; }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.btn-verprecios {
+  background: #ff6b00;
+  color: white;
+  box-shadow: 0 4px 20px rgba(255, 107, 0, 0.5);
+}
+
+.btn-verprecios:hover {
+  background: #e05e00;
+}
+
+/* ===== SELECTOR DE COLOR ===== */
+.color-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.color-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.color-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.color-btn:hover {
+  transform: scale(1.25);
+  border-color: #999;
+}
+
+.color-btn.seleccionado {
+  border-color: #222;
+  transform: scale(1.2);
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #222;
 }
 
 /* ===== BIDÓN FLOTANTE ANIMADO ===== */
