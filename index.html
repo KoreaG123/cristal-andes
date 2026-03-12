@@ -54,6 +54,7 @@
       <span class="badge">🔒 Bidones sellados</span>
     </div>
     <div class="hero-btns">
+      <a href="#pedido" class="btn btn-verde">🛒 Pedir ahora</a>
       <a href="#productos" class="btn btn-verprecios">💧 Ver precios</a>
     </div>
   </div>
@@ -71,43 +72,61 @@
   <p class="subtitulo-seccion">Agua purificada lista para ti</p>
   <div class="grid">
 
-    <!-- CARD 1: Bidón normal azul -->
+    <!-- CARD 1: Bidón azul -->
     <div class="card">
-      <img src="images/bidon-principal.jpg" alt="Bidón 20L normal" />
+      <img src="images/bidon-principal.jpg" alt="Bidón 20L azul" id="imgBidon1" />
       <h3>Bidón 20L</h3>
-      <p style="color:#666;font-size:.9rem;margin-bottom:6px;">Agua purificada · Color azul</p>
+      <p style="color:#666;font-size:.9rem;margin-bottom:8px;">Agua purificada de manantial</p>
+      <div class="color-selector">
+        <span class="color-label">Color:</span>
+        <button class="color-btn seleccionado" style="background:#3a86ff;" onclick="elegirColor('Bidon1','Bidón 20L',5,'azul',this,'images/bidon-principal.jpg')" title="Azul"></button>
+        <button class="color-btn" style="background:#ff6eb4;" onclick="elegirColor('Bidon1','Bidón 20L',5,'rosado',this,'images/bidon1.jpg')" title="Rosado"></button>
+        <button class="color-btn" style="background:#6bcb77;" onclick="elegirColor('Bidon1','Bidón 20L',5,'verde',this,'images/bidon2.jpg')" title="Verde"></button>
+      </div>
       <div class="precio-card">S/5</div>
-      <button class="btn btn-azul" style="width:100%;justify-content:center;"
-        onclick="agregarProducto('Bidón 20L (Azul)', 5, this)">
+      <button class="btn btn-azul" id="btnBidon1" style="width:100%;justify-content:center;"
+        onclick="addToCartColor('Bidon1','Bidón 20L',5,this)">
         🛒 Agregar al pedido
       </button>
     </div>
 
     <!-- CARD 2: Bidón rosado -->
     <div class="card">
-      <img src="images/bidon1.jpg" alt="Bidón rosado" />
+      <img src="images/bidon1.jpg" alt="Bidón rosado" id="imgBidon2" />
       <h3>Bidón Rosado</h3>
-      <p style="color:#666;font-size:.9rem;margin-bottom:6px;">Agua purificada · Color rosado</p>
+      <p style="color:#666;font-size:.9rem;margin-bottom:8px;">Agua purificada de manantial</p>
+      <div class="color-selector">
+        <span class="color-label">Color:</span>
+        <button class="color-btn" style="background:#3a86ff;" onclick="elegirColor('Bidon2','Bidón Rosado',5,'azul',this,'images/bidon-principal.jpg')" title="Azul"></button>
+        <button class="color-btn seleccionado" style="background:#ff6eb4;" onclick="elegirColor('Bidon2','Bidón Rosado',5,'rosado',this,'images/bidon1.jpg')" title="Rosado"></button>
+        <button class="color-btn" style="background:#6bcb77;" onclick="elegirColor('Bidon2','Bidón Rosado',5,'verde',this,'images/bidon2.jpg')" title="Verde"></button>
+      </div>
       <div class="precio-card">S/5</div>
-      <button class="btn btn-rosado" style="width:100%;justify-content:center;"
-        onclick="agregarProducto('Bidón 20L (Rosado)', 5, this)">
+      <button class="btn btn-rosado" id="btnBidon2" style="width:100%;justify-content:center;"
+        onclick="addToCartColor('Bidon2','Bidón Rosado',5,this)">
         🛒 Agregar al pedido
       </button>
     </div>
 
     <!-- CARD 3: Bidón verde -->
     <div class="card">
-      <img src="images/bidon2.jpg" alt="Bidón verde" />
+      <img src="images/bidon2.jpg" alt="Bidón verde" id="imgBidon3" />
       <h3>Bidón Verde</h3>
-      <p style="color:#666;font-size:.9rem;margin-bottom:6px;">Agua purificada · Color verde</p>
+      <p style="color:#666;font-size:.9rem;margin-bottom:8px;">Agua purificada de manantial</p>
+      <div class="color-selector">
+        <span class="color-label">Color:</span>
+        <button class="color-btn" style="background:#3a86ff;" onclick="elegirColor('Bidon3','Bidón Verde',5,'azul',this,'images/bidon-principal.jpg')" title="Azul"></button>
+        <button class="color-btn" style="background:#ff6eb4;" onclick="elegirColor('Bidon3','Bidón Verde',5,'rosado',this,'images/bidon1.jpg')" title="Rosado"></button>
+        <button class="color-btn seleccionado" style="background:#6bcb77;" onclick="elegirColor('Bidon3','Bidón Verde',5,'verde',this,'images/bidon2.jpg')" title="Verde"></button>
+      </div>
       <div class="precio-card">S/5</div>
-      <button class="btn btn-verde-prod" style="width:100%;justify-content:center;"
-        onclick="agregarProducto('Bidón 20L (Verde)', 5, this)">
+      <button class="btn btn-verde-prod" id="btnBidon3" style="width:100%;justify-content:center;"
+        onclick="addToCartColor('Bidon3','Bidón Verde',5,this)">
         🛒 Agregar al pedido
       </button>
     </div>
 
-    <!-- CARD 4: Promo 3 bidones -->
+    <!-- CARD 4: Promo -->
     <div class="card card-promo">
       <div class="promo-badge">🔥 OFERTA</div>
       <img src="images/promo.jpg" alt="Promo 3 bidones" />
